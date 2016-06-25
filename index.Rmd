@@ -71,7 +71,7 @@ You can put some text here.
 ```{r terraria, fig.height=5, fig.width=9, dev='svg'}
 terraria <- read.csv('terraria.csv')
 terraria$time <- chron(times=terraria$time)
-terraria <- melt(csgo, 
+terraria <- melt(terraria, 
     id.vars=c('time', 'command'),
     variable.name='Measure',
     value.name='Percentage')
