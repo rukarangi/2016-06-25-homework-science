@@ -95,5 +95,37 @@ ksp <- melt(ksp,
 ggplot(ksp) +
     geom_line(aes(time, Percentage, col=Measure)) + 
     scale_x_chron(format = "%H:%M:%S", n = 5)
+
+## ksp
+
+You can put some text here.
+
+```{r ksp, fig.height=5, fig.width=9, dev='svg'}
+ksp <- read.csv('ksp.csv')
+ksp$time <- chron(times=ksp$time)
+ksp <- melt(ksp, 
+    id.vars=c('time', 'command'),
+    variable.name='Measure',
+    value.name='Percentage')
+
+ggplot(ksp) +
+    geom_line(aes(time, Percentage, col=Measure)) + 
+    scale_x_chron(format = "%H:%M:%S", n = 5)
+
+## gmod
+
+You can put some text here.
+
+```{r ksp, fig.height=5, fig.width=9, dev='svg'}
+gmod <- read.csv('gmod.csv')
+gmod$time <- chron(times=gmod$time)
+gmod <- melt(gmod, 
+    id.vars=c('time', 'command'),
+    variable.name='Measure',
+    value.name='Percentage')
+
+ggplot(gmod) +
+    geom_line(aes(time, Percentage, col=Measure)) + 
+    scale_x_chron(format = "%H:%M:%S", n = 5)
 ```
 

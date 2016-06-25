@@ -31,6 +31,9 @@ terraria.csv: terraria_raw.file
 ksp.csv: ksp_raw.file
 	./read-file KSP.x86 < $< > $@
 
+gmod.csv: gmod_raw.file
+	./read-file hl2_linux < $< > $@
+
 
 
 ## read-file reads _raw.file to produce a csv
