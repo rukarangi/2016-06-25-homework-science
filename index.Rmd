@@ -48,4 +48,20 @@ ggplot(besiege) +
     geom_line(aes(time, Percentage, col=Measure)) + 
     scale_x_chron(format = "%H:%M:%S", n = 5)
 ```
+## csgo
+
+You can put some text here.
+
+```{r csgo, fig.height=5, fig.width=9, dev='svg'}
+csgo <- read.csv('csgo.csv')
+csgo$time <- chron(times=csgo$time)
+csgo <- melt(csgo, 
+    id.vars=c('time', 'command'),
+    variable.name='Measure',
+    value.name='Percentage')
+
+ggplot(csgo) +
+    geom_line(aes(time, Percentage, col=Measure)) + 
+    scale_x_chron(format = "%H:%M:%S", n = 5)
+```
 

@@ -9,7 +9,8 @@ all: index.html
 # Simple html output
 index.html: index.Rmd \
 			besiege.csv \
-			verdun.csv
+			verdun.csv \
+			csgo.csv
 	${HADLEY} Rscript -e "rmarkdown::render('$<')"
 
 besiege.csv: besiege_raw.file
@@ -17,6 +18,9 @@ besiege.csv: besiege_raw.file
 
 verdun.csv: verdun_raw.file
 	./read-file Verdun.x8+ < $< > $@
+
+csgo.csv: CSGO_raw.file
+	./read-file csgo_linux+ < $< > $@
 
 
 ## read-file reads _raw.file to produce a csv
