@@ -13,6 +13,7 @@ index.html: index.Rmd \
 			csgo.csv \
 			terraria.csv \
 			ksp.csv
+
 	${HADLEY} Rscript -e "rmarkdown::render('$<')"
 
 besiege.csv: besiege_raw.file
