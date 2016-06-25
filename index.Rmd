@@ -48,6 +48,7 @@ ggplot(besiege) +
     geom_line(aes(time, Percentage, col=Measure)) + 
     scale_x_chron(format = "%H:%M:%S", n = 5)
 ```
+
 ## csgo
 
 You can put some text here.
@@ -64,6 +65,7 @@ ggplot(csgo) +
     geom_line(aes(time, Percentage, col=Measure)) + 
     scale_x_chron(format = "%H:%M:%S", n = 5)
 ```
+
 ## terraria
 
 You can put some text here.
