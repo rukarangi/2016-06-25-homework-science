@@ -60,7 +60,19 @@ csgo <- melt(csgo,
     variable.name='Measure',
     value.name='Percentage')
 
-ggplot(csgo) +
+## terraria
+
+You can put some text here.
+
+```{r terraria, fig.height=5, fig.width=9, dev='svg'}
+terraria <- read.csv('terraria.csv')
+terraria$time <- chron(times=terraria$time)
+terraria <- melt(csgo, 
+    id.vars=c('time', 'command'),
+    variable.name='Measure',
+    value.name='Percentage')
+
+ggplot(terraria) +
     geom_line(aes(time, Percentage, col=Measure)) + 
     scale_x_chron(format = "%H:%M:%S", n = 5)
 ```
