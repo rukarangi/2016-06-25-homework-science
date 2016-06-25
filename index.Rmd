@@ -95,6 +95,7 @@ ksp <- melt(ksp,
 ggplot(ksp) +
     geom_line(aes(time, Percentage, col=Measure)) + 
     scale_x_chron(format = "%H:%M:%S", n = 5)
+```
 
 ## gmod
 
@@ -111,5 +112,5 @@ gmod <- melt(gmod,
 ggplot(gmod) +
     geom_line(aes(time, Percentage, col=Measure)) + 
     scale_x_chron(format = "%H:%M:%S", n = 5)
-```
+c
 
