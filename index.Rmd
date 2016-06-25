@@ -1,0 +1,51 @@
+---
+title: "Minimal requirements for computer games"
+author: "Luke Thompson"
+date: "June 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(ggplot2)
+library(reshape2)
+library(chron)
+
+```
+
+## Verdun
+
+You can put some text here.
+
+```{r verdun, fig.height=5, fig.width=9, dev='svg'}
+verdun <- read.csv('verdun.csv')
+verdun$time <- chron(times=verdun$time)
+verdun <- melt(verdun, 
+    id.vars=c('time', 'command'),
+    variable.name='Measure',
+    value.name='Percentage')
+
+ggplot(verdun) +
+    geom_line(aes(time, Percentage, col=Measure)) + 
+    scale_x_chron(format = "%H:%M:%S", n = 5)
+```
+
+
+## Besiege
+
+You can put some text here.
+
+```{r besiege, fig.height=5, fig.width=9, dev='svg'}
+besiege <- read.csv('besiege.csv')
+besiege$time <- chron(times=besiege$time)
+besiege <- melt(besiege, 
+    id.vars=c('time', 'command'),
+    variable.name='Measure',
+    value.name='Percentage')
+
+ggplot(besiege) +
+    geom_line(aes(time, Percentage, col=Measure)) + 
+    scale_x_chron(format = "%H:%M:%S", n = 5)
+```
+
