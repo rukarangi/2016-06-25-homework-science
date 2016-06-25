@@ -11,7 +11,8 @@ index.html: index.Rmd \
 			besiege.csv \
 			verdun.csv \
 			csgo.csv \
-			terraria.csv
+			terraria.csv \
+			ksp.csv
 	${HADLEY} Rscript -e "rmarkdown::render('$<')"
 
 besiege.csv: besiege_raw.file
@@ -26,6 +27,8 @@ csgo.csv: CSGO_raw.file
 terraria.csv: terraria_raw.file
 	./read-file Terraria.b+ < $< > $@
 
+ksp.csv: ksp_raw.file
+	./read-file KSP.x86 < $< > $@
 
 
 
