@@ -101,7 +101,7 @@ ggplot(ksp) +
 
 You can put some text here.
 
-```{r ksp, fig.height=5, fig.width=9, dev='svg'}
+```{r gmod, fig.height=5, fig.width=9, dev='svg'}
 gmod <- read.csv('gmod.csv')
 gmod$time <- chron(times=gmod$time)
 gmod <- melt(gmod, 
