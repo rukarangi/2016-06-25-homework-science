@@ -12,7 +12,8 @@ index.html: index.Rmd \
 			verdun.csv \
 			csgo.csv \
 			terraria.csv \
-			ksp.csv
+			ksp.csv \
+			gmod.csv
 
 	${HADLEY} Rscript -e "rmarkdown::render('$<')"
 
