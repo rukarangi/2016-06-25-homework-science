@@ -13,7 +13,8 @@ index.html: index.Rmd \
 			csgo.csv \
 			terraria.csv \
 			ksp.csv \
-			gmod.csv
+			gmod.csv \
+			gsim.csv
 
 	${HADLEY} Rscript -e "rmarkdown::render('$<')"
 
@@ -35,7 +36,8 @@ ksp.csv: ksp_raw.file
 gmod.csv: gmod_raw.file
 	./read-file hl2_linux < $< > $@
 
-
+gsim.csv: gsim_raw.file
+	./read-file GoatGame < $< > $@
 
 ## read-file reads _raw.file to produce a csv
 read-file: read-file.hs
