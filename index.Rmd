@@ -134,3 +134,19 @@ ggplot(gsim) +
     scale_x_chron(format = "%H:%M:%S", n = 5)
 ```
 
+## Mount and Blade
+
+You can put some text here.
+
+```{r mandbnapoleon, fig.height=5, fig.width=9, dev='svg'}
+mandbnapoleon <- read.csv('mandbnapoleon.csv')
+mandbnapoleon$time <- chron(times=mandbnapoleon$time)
+mandbnapoleon <- melt(mandbnapoleon, 
+    id.vars=c('time', 'command'),
+    variable.name='Measure',
+    value.name='Percentage')
+
+ggplot(mandbnapoleon) +
+    geom_line(aes(time, Percentage, col=Measure)) + 
+    scale_x_chron(format = "%H:%M:%S", n = 5)
+```
