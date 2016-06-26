@@ -15,7 +15,7 @@ index.html: index.Rmd \
 			ksp.csv \
 			gmod.csv \
 			gsim.csv \
-			mandbnapoleon
+			mandbnapoleon.csv
 
 	${HADLEY} Rscript -e "rmarkdown::render('$<')"
 
