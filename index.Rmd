@@ -150,3 +150,20 @@ ggplot(mandbnapoleon) +
     geom_line(aes(time, Percentage, col=Measure)) + 
     scale_x_chron(format = "%H:%M:%S", n = 5)
 ```
+
+## terrariatest
+
+You can put some text here.
+
+```{r terrariatest, fig.height=5, fig.width=9, dev='svg'}
+terrariatest <- read.csv('terrariatest.csv')
+terrariatest$time <- chron(times=terrariatest$time)
+terrariatest <- melt(terrariatest, 
+    id.vars=c('time', 'command'),
+    variable.name='Measure',
+    value.name='Percentage')
+
+ggplot(terrariatest) +
+    geom_line(aes(time, Percentage, col=Measure)) + 
+    scale_x_chron(format = "%H:%M:%S", n = 5)
+```
