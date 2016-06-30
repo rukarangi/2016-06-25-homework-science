@@ -16,7 +16,8 @@ index.html: index.Rmd \
 			gmod.csv \
 			gsim.csv \
 			mandbnapoleon.csv \
-			terrariatest.csv
+			terrariatest.csv \
+			gsimtest.csv
 
 	${HADLEY} Rscript -e "rmarkdown::render('$<')"
 
@@ -44,8 +45,11 @@ gsim.csv: gsim_raw.file
 mandbnapoleon.csv: MandBNapoleon_raw.file
 	./read-file mb_warband+ < $< > $@
 
-terrariatest.csv: terraria_test.file
+terrariatest.csv: terraria_final.file
 	./read-file Terraria.b+ < $< > $@
+
+gsimtest.csv: gsim_final.file
+	./read-file GoatGame < $< > $@
 
 ## read-file reads _raw.file to produce a csv
 read-file: read-file.hs

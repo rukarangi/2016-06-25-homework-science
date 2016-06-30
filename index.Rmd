@@ -167,3 +167,20 @@ ggplot(terrariatest) +
     geom_line(aes(time, Percentage, col=Measure)) + 
     scale_x_chron(format = "%H:%M:%S", n = 5)
 ```
+
+## gsimtest
+
+You can put some text here.
+
+```{r gsimtest, fig.height=5, fig.width=9, dev='svg'}
+gsimtest <- read.csv('gsimtest.csv')
+gsimtest$time <- chron(times=gsimtest$time)
+gsimtest <- melt(gsimtest, 
+    id.vars=c('time', 'command'),
+    variable.name='Measure',
+    value.name='Percentage')
+
+ggplot(gsimtest) +
+    geom_line(aes(time, Percentage, col=Measure)) + 
+    scale_x_chron(format = "%H:%M:%S", n = 5)
+```
