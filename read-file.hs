@@ -40,8 +40,8 @@ makeRecord :: Command -> [Line] -> Record
 makeRecord cmd (l:ls) = 
   let Just t = get "^top - ([0-9][0-9]:[0-9][0-9]:[0-9][0-9])" l
       selected = find (=~ cmd) ls
-      cpu = get ("([0-9]{1,3}.[0-9]) {1,}[0-9]{1,3}.[0-9] {1,}[0-9]{2}:[0-9]{2}.[0-9]{2} {1,}" ++ cmd) =<< selected
-      mem = get ("[0-9]{1,3}.[0-9] {1,}([0-9]{1,3}.[0-9]) {1,}[0-9]{2}:[0-9]{2}.[0-9]{2} {1,}" ++ cmd) =<< selected
+      cpu = get ("([0-9]{1,3}.[0-9]) {1,}[0-9]{1,3}.[0-9] {1,}[0-9]{1,2}:[0-9]{2}.[0-9]{2} {1,}" ++ cmd) =<< selected
+      mem = get ("[0-9]{1,3}.[0-9] {1,}([0-9]{1,3}.[0-9]) {1,}[0-9]{1,2}:[0-9]{2}.[0-9]{2} {1,}" ++ cmd) =<< selected
   in  Record t cmd (maybe "0.0" id mem) (maybe "0.0" id cpu)
 
 get :: String -> Line -> Maybe String
